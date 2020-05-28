@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import get_user_model
 
+User = get_user_model()
 class ContactForm(forms.Form):
     nome_completo = forms.CharField(
     error_messages={'required': 'Obrigatório o preenchimento do nome'},
@@ -44,7 +45,7 @@ class RegisterForm(forms.Form):
     username = forms.CharField()
     email = forms.EmailField()
     password = forms.CharField(widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm password', widget==forms.PasswordInput)
+    password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
